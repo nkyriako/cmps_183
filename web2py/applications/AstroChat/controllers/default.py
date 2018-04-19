@@ -18,12 +18,6 @@ def index():
     return auth.wiki()
     """
     response.flash = T("Hello World")
-
-    session.c = 1 if session.c is None else session.c + 1
-
-    logger.info('The session is: %r' % session)
-    logger.info('The auth user object is: %r' % auth.user)
-
     return dict(message=T('Welcome to web2py!'))
 
 
