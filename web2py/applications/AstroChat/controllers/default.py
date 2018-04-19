@@ -5,7 +5,7 @@
 # -------------------------------------------------------------------------
 
 # ---- example index page ----
-def index():
+def indexe():
     response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
 
@@ -30,7 +30,7 @@ def wiki():
     return auth.wiki() 
 
 # ---- Action for login/register/etc (required for auth) -----
-def user():
+def index():
     """
     exposes:
     http://..../[app]/default/user/login
