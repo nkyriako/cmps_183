@@ -75,3 +75,34 @@ CREATE TABLE "web2py_session_AstroChat"(
     "session_data" BLOB
 );
 success!
+timestamp: 2018-04-25T01:37:12.075701
+CREATE TABLE "user_table"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email" CHAR(512),
+    "birthday" TIMESTAMP,
+    "birth_sign" CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
