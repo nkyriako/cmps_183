@@ -113,3 +113,40 @@ ALTER TABLE "user_table" ADD "username" CHAR(128) UNIQUE;
 timestamp: 2018-04-25T17:55:47.637546
 ALTER TABLE "auth_user" ADD "username" CHAR(128);
 success!
+timestamp: 2018-04-25T18:50:31.343825
+ALTER TABLE "user_table" ADD "username" CHAR(512);
+timestamp: 2018-04-25T18:50:31.349636
+ALTER TABLE "user_table" ADD "bio" CHAR(512);
+timestamp: 2018-04-25T18:50:31.358432
+ALTER TABLE "user_table" ADD "profile_picture" CHAR(512);
+timestamp: 2018-04-25T18:50:31.363278
+ALTER TABLE "user_table" ADD "banner" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2018-04-25T19:15:32.055165
+CREATE TABLE "banners_table"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "banner_color" CHAR(512)
+);
+success!
+timestamp: 2018-04-25T19:20:49.117086
+ALTER TABLE "user_table" ADD "banner_id" CHAR(512);
+success!
