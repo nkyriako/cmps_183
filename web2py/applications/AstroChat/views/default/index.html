@@ -3,14 +3,22 @@
 {{block head}}
 {{end}}
 
-<div class="main_content">
 
-  <!-- Here goes your main HTML code. -->
+<div class="main_content">
+    <h1>Welcome to AstroChat!</h1>
+
+
+
   <div class="profile_btn">
     <a class="btn rounded" href="{{=URL('default','edit_profile')}}">
       <i class="fa fa-edit fa-lg"></i>
     </a>
   </div>
+
+
+        <a class="btn rounded" href="{{=URL('default', 'about_me', str(auth.user_id))}}">
+        <i class="fa fa-edge">About Me</i>
+        </a>
 
 </div>
 

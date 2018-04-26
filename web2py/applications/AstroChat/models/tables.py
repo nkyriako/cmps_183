@@ -13,7 +13,7 @@ def get_user_email():
     return auth.user.email if auth.user is not None else None
 
 db.define_table('user_table',
-		Field('user_email', default=get_user_email()),
+		        Field('user_email', default=get_user_email()),
                 Field('birthday', 'datetime'),
                 Field('birth_sign')
                 )
