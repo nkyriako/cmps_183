@@ -17,7 +17,7 @@ db.define_table('user_table',
                 Field('birthday', 'datetime'),
                 Field('profile_picture'),
                 Field('bio'),
-                Field('banner_id', default='1')
+                Field('banner_id', 'integer', default='1')
                 )
 
 db.user_table.user_email.writable = db.user_table.user_email.readable = False
