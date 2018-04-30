@@ -23,9 +23,6 @@ db.define_table('user_table',
 db.user_table.user_email.writable = db.user_table.user_email.readable = False
 db.user_table.id.writable = db.user_table.id.readable = False
 
-db.define_table('banners_table',
-		Field('banner_color')
-                )
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

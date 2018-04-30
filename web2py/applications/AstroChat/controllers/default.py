@@ -26,14 +26,14 @@ def edit_profile():
 
     q = (db.user_table.user_email == auth.user.email)
     cl = db(q).select().first()
-    if cl is None:
-	form = SQLFORM(db.user_table)
-    else:
-	form = SQLFORM(db.user_table, record=cl, deletable = False)
+    #if cl is None:
+	#form = SQLFORM(db.user_table)
+    #else:
+	#form = SQLFORM(db.user_table, record=cl, deletable = False)
 
     #redirect(URL('default', 'index'))
-    form.process().accepted
-    return dict(form=form)
+    #form.process().accepted
+    return dict(message=T('edit'))
 
 
 def user():

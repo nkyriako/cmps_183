@@ -1,0 +1,56 @@
+{{extend 'layout.html'}}
+
+<div class="mycontent">
+  
+    <div class="container blue"> 
+      <div class="padd">
+        <h1>Edit profile HERE!</h1>
+         
+        <div>
+          <form action="/action_page.php" target="_blank" method="post">
+	    <fieldset>
+	      <legend>Text input</legend>
+              <p>
+	        <label>Text box</label>
+                <input type = "text"
+                       name = "text"
+		       id = "myText"
+                       value = "text here"/>
+              </p>
+              <p>
+                <label>Password</label>
+                <input type = "password"
+                       name = "password"
+                       id = "myPwd"
+                       value = "secret" />
+              </p>
+              <p>
+                <label>Text Area</label>
+                <textarea id = "myTextArea"
+                          name = "description"
+                          rows = "3"
+                          cols = "80">Your text here</textarea>
+              </p>
+              <p>
+                <label>Color</label>
+                <select name="color">
+		  <option value="Red">Red</option>
+		  <option value="Green">Green</option>
+		  <option value="Blue">Blue</option>
+              </p>
+              <p>
+                <label>Birthday</label>
+                <input type = "datetime-local" 
+                       name = "birthday"/>
+              </p>
+              <p>
+		<input type="submit" value="Submit">
+              </p>
+ 	    <fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+</div>
