@@ -8,6 +8,8 @@
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
 
+from datetime import datetime
+import datetime
 
 # Homepage
 def index():
@@ -23,17 +25,40 @@ def index():
 
 # User can edit profile here
 def edit_profile():
+    q = (db.user_table.user_email == auth.user.email)
+    #redirect(URL('default', 'index'))
+    return dict(message=T('edit'))
+
+def submit():
 
     q = (db.user_table.user_email == auth.user.email)
     cl = db(q).select().first()
-    #if cl is None:
-	#form = SQLFORM(db.user_table)
-    #else:
-	#form = SQLFORM(db.user_table, record=cl, deletable = False)
 
-    #redirect(URL('default', 'index'))
-    #form.process().accepted
-    return dict(message=T('edit'))
+    # Already in the table (editing)    
+    if cl is not None:
+    	cl.update_record(birthday=request.vars.birthday, 
+                         profile_picture=request.vars.picture,
+                         bio=request.vars.bio,
+      			 banner=request.vars.banner
+                        )                  
+   	if request.vars>0:
+		#out_message = request.vars
+                redirect(URL('default', 'index'))
+    	else:
+		out_message = "no post"
+        response.flash = ("profile edited")
+ 
+    # Not in the table yet (adding)
+    else:
+        db.user_table.insert(birthday=request.vars.birthday,
+                             profile_picture=request.vars.picture,
+                             bio=request.vars.bio,
+			     banner=request.vars.banner
+			    )			
+	#out_message = "hold on"
+        redirect(URL('default', 'index'))
+        response.flash = ("profile added to table")
+    return dict(message=out_message)   
 
 
 def user():

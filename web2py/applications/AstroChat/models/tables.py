@@ -14,10 +14,10 @@ def get_user_email():
 
 db.define_table('user_table',
 		Field('user_email', default=get_user_email()),
-                Field('birthday', 'datetime'),
+                Field('birthday', 'date'),
                 Field('profile_picture'),
                 Field('bio'),
-                Field('banner_id', 'integer', default='1')
+                Field('banner', 'text', default='Red')
                 )
 
 db.user_table.user_email.writable = db.user_table.user_email.readable = False
