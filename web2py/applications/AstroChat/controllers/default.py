@@ -26,8 +26,12 @@ def index():
 # User can edit profile here
 def edit_profile():
     q = (db.user_table.user_email == auth.user.email)
+    cl = db(q).select().first()
+    
+    #if cl is not None:
+    return dict(table=cl)
     #redirect(URL('default', 'index'))
-    return dict(message=T('edit'))
+    #return dict(message=T('edit'))
 
 def submit():
 

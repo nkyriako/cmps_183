@@ -10,35 +10,69 @@
           <form action="submit" method="POST">
 	    <fieldset>
 	      <legend>Text input</legend>
-              <p>
-                <label>Birthday</label>
-                <input type = "date" 
-                       name = "birthday"
-                       id = "birthday"/>
-              </p>
-              <p>
-	        <label>Picture</label>
-                <input type = "file"
-                       name = "picture"
-		       id = "picture"/>
-              </p>
-              <p>
-                <label>Bio</label>
-                <textarea id = "bio"
-                          name = "bio"
-                          rows = "4"
-                          cols = "80">Your text here</textarea>
-              </p>
-              <p>
-                <label>Banner</label>
-                <select name="banner" id="banner">
-		  <option value="Red">Red</option>
-		  <option value="Green">Green</option>
-		  <option value="Blue">Blue</option>
-              </p>
+              {{if table is not None:}}
+              	<p>
+                  <label>Birthday</label>
+                  <input type = "date" 
+                         name = "birthday"
+                         id = "birthday"
+                         value = "{{=table.birthday}}">
+                </p>
+                <p>
+	          <label>Picture</label>
+                  <input type = "file"
+                         name = "picture"
+		         id = "picture"
+                         value = "{{=table.profile_picture}}">
+                </p>
+                <p>
+                  <label>Bio</label>
+                  <textarea id = "bio"
+                            name = "bio"
+                            rows = "4"
+                            cols = "80">{{=table.bio}}</textarea>
+                </p>
+                <p>
+                  <label>Banner</label>
+                  <select name="banner" id="banner">
+		      <option  selected value="{{=table.banner}}">{{=table.banner}}</option>
+                      <option value="Red">Red</option>
+		      <option value="Green">Green</option>
+		      <option value="Blue">Blue</option>
+                </p>
+              {{else:}}
+                <p>
+                  <label>Birthday</label>
+                  <input type = "date" 
+                         name = "birthday"
+                         id = "birthday"/>
+                </p>
+                <p>
+	          <label>Picture</label>
+                  <input type = "file"
+                         name = "picture"
+		         id = "picture"/>
+                </p>
+                <p>
+                  <label>Bio</label>
+                  <textarea id = "bio"
+                            name = "bio"
+                            rows = "4"
+                            cols = "80"
+			    placeholder = "description..."></textarea>
+                </p>
+                <p>
+                  <label>Banner</label>
+                  <select name="banner" id="banner">
+                    <option disabled selected value> -- choose a color -- </option>
+		    <option value="Red">Red</option>
+		    <option value="Green">Green</option>
+		    <option value="Blue">Blue</option>
+                </p>
+              {{pass}}
               <p>
                 <button>Submit</button>
-		<input type="submit" value="Submit">
+	        <input type="submit" value="Submit">
               </p>
  	    <fieldset>
           </form>
