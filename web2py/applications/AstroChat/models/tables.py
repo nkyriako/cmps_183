@@ -15,7 +15,7 @@ def get_user_email():
 db.define_table('user_table',
 		Field('user_email', default=get_user_email()),
                 Field('birthday', 'date'),
-                Field('profile_picture'),
+                Field('profile_picture', 'text'),
                 Field('bio'),
                 Field('banner', 'text', default='Red')
                 )

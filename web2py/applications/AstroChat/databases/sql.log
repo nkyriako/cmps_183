@@ -75,3 +75,4 @@ CREATE TABLE "user_table"(
     "banner" TEXT
 );
 success!
+success!
