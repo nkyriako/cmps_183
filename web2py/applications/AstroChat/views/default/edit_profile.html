@@ -2,11 +2,12 @@
 
 <div class="mycontent">
   
-    <div class="container {{=table.banner}}"> 
+    <div class="container"> 
       <div class="padd">
         <h1>Edit profile HERE!</h1>
-        <div>
-          <form action="submit" method="POST">
+        <div class="container {{=table.banner}}">
+	 <div class="padd">
+          <form action="submit" method="POST" enctype="multipart/form-data">
 	    <fieldset>
 	      <legend>Text input</legend>
               {{if table is not None:}}
@@ -24,6 +25,9 @@
 		         id = "picture"
                          value = "{{=table.profile_picture}}">
                 </p>
+		
+                <img src="{{=URL('static', 'images/profile_pics', args=table.profile_picture)}}" />
+                </div>
                 <p>
                   <label>Bio</label>
                   <textarea id = "bio"
@@ -31,14 +35,15 @@
                             rows = "4"
                             cols = "80">{{=table.bio}}</textarea>
                 </p>
-                <p>
-                  <label>Banner</label>
-                  <select name="banner" id="banner">
-		      <option  selected value="{{=table.banner}}">{{=table.banner}}</option>
-                      <option value="Red">Red</option>
-		      <option value="Green">Green</option>
-		      <option value="Blue">Blue</option>
-                </p>
+                  <p>
+                    <label>Banner</label>
+                    <select name="banner" id="banner">
+		        <option  selected value="{{=table.banner}}">{{=table.banner}}</option>
+                        <option value="Red">Red</option>
+		        <option value="Green">Green</option>
+		        <option value="Blue">Blue</option>
+                  </p>
+               
               {{else:}}
                 <p>
                   <label>Birthday</label>
@@ -51,7 +56,7 @@
                   <input type = "file"
                          name = "picture"
 		         id = "picture"
-                         accept = ".jpg, .png">
+                                       >
                 </p>
                 <p>
                   <label>Bio</label>
@@ -78,7 +83,10 @@
           </form>
         </div>
       </div>
+     </div>
     </div>
    
+                <!--img src="{{=URL('uploads', args='lost_mines_bg.jpg')}}" /-->
+    <!--img src="{{=URL('static', 'images', args='background.jpg')}}" /-->
     <!--img src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg"--> 
 </div>

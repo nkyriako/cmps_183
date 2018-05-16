@@ -10,6 +10,7 @@
 
 from datetime import datetime
 import datetime
+import os
 
 # Homepage
 def index():
@@ -32,6 +33,11 @@ def edit_profile():
     return dict(table=cl)
     #redirect(URL('default', 'index'))
     #return dict(message=T('edit'))
+
+def get_pic():
+    q = (db.user_table.user_email == auth.user.email)
+    cl = db(q).select().first().profile_picture
+    return dict(pic=cl)
 
 def submit():
 
@@ -64,6 +70,10 @@ def submit():
         response.flash = ("profile added to table")
     return dict(message=out_message)   
 
+def serve_file():
+    filename = request.args(0)
+    path = os.path.join(request.folder, 'uploads', filename)
+    return response.stream(path)
 
 def user():
     """
