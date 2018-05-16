@@ -4116,3 +4116,10 @@
 127.0.0.1, 2018-05-16 16:39:15, GET, /AstroChat/default/edit_profile, HTTP/1.1, 200, 0.029391
 127.0.0.1, 2018-05-16 16:39:15, GET, /AstroChat/static/images/profile_pics/user_table.profile_picture.a39f7bd3994468e9.666f785f6261636b67726f756e642e6a7067.jpg, HTTP/1.1, 200, 0.000423
 127.0.0.1, 2018-05-16 16:39:15, GET, /favicon.ico, HTTP/1.1, 400, 0.000185
+127.0.0.1, 2018-05-16 16:44:27, GET, /, HTTP/1.1, 303, 0.000620
+127.0.0.1, 2018-05-16 16:44:27, GET, /welcome/default/index, HTTP/1.1, 200, 0.071141
+127.0.0.1, 2018-05-16 16:44:32, GET, /AstroChat/default/index, HTTP/1.1, 200, 0.042364
+127.0.0.1, 2018-05-16 16:44:32, GET, /favicon.ico, HTTP/1.1, 400, 0.000174
+127.0.0.1, 2018-05-16 16:44:35, GET, /AstroChat/default/edit_profile, HTTP/1.1, 200, 0.023479
+127.0.0.1, 2018-05-16 16:44:36, GET, /AstroChat/static/images/profile_pics/user_table.profile_picture.a39f7bd3994468e9.666f785f6261636b67726f756e642e6a7067.jpg, HTTP/1.1, 304, 0.000310
+127.0.0.1, 2018-05-16 16:44:36, GET, /favicon.ico, HTTP/1.1, 400, 0.000234
