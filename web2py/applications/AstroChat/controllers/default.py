@@ -29,10 +29,11 @@ def edit_profile():
     q = (db.user_table.user_email == auth.user.email)
     cl = db(q).select().first()
     
-    #if cl is not None:
-    return dict(table=cl)
+    if cl is not None:
+        return dict(table=cl)
+    else:
     #redirect(URL('default', 'index'))
-    #return dict(message=T('edit'))
+        return dict(table=None)
 
 def get_pic():
     q = (db.user_table.user_email == auth.user.email)

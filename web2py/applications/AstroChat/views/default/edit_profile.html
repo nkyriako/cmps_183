@@ -1,11 +1,15 @@
 {{extend 'layout.html'}}
 
-<div class="mycontent">
+{{block head}}
+{{end}}
+
+<!--div class="mycontent"-->
   
-    <div class="container"> 
-      <div class="padd">
+    <!--div style="background-color:black"--> 
+ <!--body background="{{=URL('static', 'images', args='space.jpg')}}"--> 
+    <!--div class="container" background=--> 
+      <div class="main_content">
         <h1>Edit profile HERE!</h1>
-        <div class="container {{=table.banner}}">
 	 <div class="padd">
           <form action="submit" method="POST" enctype="multipart/form-data">
 	    <fieldset>
@@ -16,7 +20,7 @@
                   <input type = "date" 
                          name = "birthday"
                          id = "birthday"
-                         value = "{{=table.birthday}}">
+                         value = "{{=table.birthday}}" class = "form_text">
                 </p>
                 <p>
 	          <label>Picture</label>
@@ -33,16 +37,16 @@
                   <textarea id = "bio"
                             name = "bio"
                             rows = "4"
-                            cols = "80">{{=table.bio}}</textarea>
+                            cols = "80" class = "form_text">{{=table.bio}}</textarea>
                 </p>
-                  <p>
-                    <label>Banner</label>
-                    <select name="banner" id="banner">
-		        <option  selected value="{{=table.banner}}">{{=table.banner}}</option>
-                        <option value="Red">Red</option>
-		        <option value="Green">Green</option>
-		        <option value="Blue">Blue</option>
-                  </p>
+                <p>
+                  <label>Banner</label>
+                  <select name="banner" id="banner">
+		      <option  selected value="{{=table.banner}}">{{=table.banner}}</option>
+                      <option value="Red">Red</option>
+		      <option value="Green">Green</option>
+		      <option value="Blue">Blue</option>
+                </p>
                
               {{else:}}
                 <p>
@@ -69,7 +73,7 @@
                 <p>
                   <label>Banner</label>
                   <select name="banner" id="banner">
-                    <option disabled selected value> -- choose a color -- </option>
+                    <option disabled selected value>  choose a color  </option>
 		    <option value="Red">Red</option>
 		    <option value="Green">Green</option>
 		    <option value="Blue">Blue</option>
@@ -83,10 +87,8 @@
           </form>
         </div>
       </div>
-     </div>
-    </div>
-   
+  <!--/body-->   
                 <!--img src="{{=URL('uploads', args='lost_mines_bg.jpg')}}" /-->
     <!--img src="{{=URL('static', 'images', args='background.jpg')}}" /-->
     <!--img src="https://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg"--> 
-</div>
+<!--/div-->
