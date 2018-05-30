@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script>
+    var get_forum_url = "{{=URL('api', 'get_forum')}}";
+    var add_track_url = "{{=URL('api', 'add_forum', user_signature=True, hash_vars=False)}}";
+    var get_user_email_url = "{{=URL('api', 'get_user_email', user_signature=True, hash_vars=False)}}";
+    //var toggle_public_url = "{{=URL('api', 'toggle_public')}}";
+    var edit_track_url = "{{=URL('api', 'edit_track', user_signature=True)}}";
+    var del_track_url = "{{=URL('api', 'delete_track', user_signature=True)}}";
+    var toggle_public_url = "{{=URL('api', 'toggle_public', user_signature=True)}}";
+</script>
+{{end}}
+
+<div class="main_content">
+  <div id="vue-div" class="display:none">
+    
+    <!-- Adding forum post goes here -->
+    <div id="add_track_div">
+      <form action="#" v-on:submit.prevent="add_track" class="form-horizontal"  method="post">
+          <div>Add new memos here!</div>
+          <div>
+            <input name="form_title" v-model="form_title" placeholder="Title" type="text" />
+            <span class="help-block"></span>
+          </div>
+          <div>
+            <input name="form_memo" v-model="form_memo" placeholder="Memo" type="text" />
+            <span class="help-block"></span>
+          </div>
+          <div>
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+          </div>
+      </form>
+    </div>
+
+    <!-- Displaying forum posts -->
+     <div class="result_table">
+      <table>
+        <thead>
+        <tr>
+          <th></th>
+          <th>User</th>
+          <th>Title</th>
+          <th>Memo</th>
+        </tr>
+        </thead>
+        <tbody>
+         <tr v-for="post in forum" :key="post">
+          <td></td>
+          <td>${post.email}</td>
+          <td>${post.title}</td>
+          <td>${post.memo}</td>
+         </tr>
+        </tbody>
+      </table>
+     </div>
+    
+  </div>
+</div>
+
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+

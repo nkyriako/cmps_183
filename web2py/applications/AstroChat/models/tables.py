@@ -21,9 +21,19 @@ db.define_table('user_table',
                 Field('banner', 'text', default='Red')
                 )
 
+db.define_table('checklist',
+		Field('user_email', default=get_user_email()),
+		Field('title'),
+		Field('memo', 'text'),
+		Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
+               )
+
 db.user_table.user_email.writable = db.user_table.user_email.readable = False
 db.user_table.id.writable = db.user_table.id.readable = False
 db.user_table.profile_picture.autodelete = True
+
+db.checklist.user_email.writable = db.checklist.user_email.readable = False
+db.checklist.id.writable = db.checklist.id.readable = False
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

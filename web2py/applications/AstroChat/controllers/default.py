@@ -24,6 +24,11 @@ def index():
     response.flash = T("AstroChat")
     return dict(message=T('Welcome!'))
 
+# ForumPage
+def forum():
+    return dict(table=None)
+
+
 # User can edit profile here
 def edit_profile():
     q = (db.user_table.user_email == auth.user.email)
@@ -41,7 +46,6 @@ def get_pic():
     return dict(pic=cl)
 
 def submit():
-
     q = (db.user_table.user_email == auth.user.email)
     cl = db(q).select().first()
 

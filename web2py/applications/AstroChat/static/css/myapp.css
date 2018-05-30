@@ -6,23 +6,24 @@
 select {
     padding: 16px 20px;
     border: 2px solid black;
-    border-radius: 4px;
-    background-color:#CCEECC;
+    border-radius: 6px;
+    background-color:#FFFFFF;*/
 }
 
 textarea {
     border: 2px solid black;
-    border-radius: 4px;
-    background-color: #CCEECC;
+    border-radius: 6px;
+    /*background-color: #CCEECC;*/
     color: black;
     resize: none;
 }
 
-input[type=button], input[type=submit] { 
-    background-color: #4CAF50;
+input[type=submit] { 
+    /*background-color: #4CAF50;*/
     border: none;
-    color: white;
+    border-radius: 6px;
+    color: black;
     padding: 16px 32px;
-    margin: 4px 2px;
+    /*margin: 4px 2px;*/
     cursor: pointer;
-}
+}*/
