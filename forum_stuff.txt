@@ -1,0 +1,11 @@
+Forum stuff to add:
+
+
+	views/default/forum.html
+	
+	static/js/default_index.js
+
+	controllers/api.py
+
+
+pretty sure just copy/pasting the whole file will work
