@@ -1,0 +1,23 @@
+#snippet{
+    border: double;
+    margin: 10px;
+    padding: 10px;
+}
+
+#title{
+    border: solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+#text{
+    border: solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+.tit{
+    border: solid;
+    margin: 5px;
+    padding: 5px;
+}

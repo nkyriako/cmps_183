@@ -1,0 +1,29 @@
+{{extend 'layout.html'}}
+
+<!-- link back to /default/index-->
+<a href='/Camphyr/default/index'>&lt;Home&gt;</a>                           <!-- should be lowercase camphyr -->
+
+<form action="searches.html" method = "get">                                <!-- form for search bar -->
+    <input type="text" name="search" placeholder="Search for stories"/>     <!--placeholder inside search bar -->
+    <input type="submit" value="Search!"/>                                  <!-- submit button -->
+</form>                                                                     <!-- end form-->
+
+<!-- For loop to print out hits -->
+<p>{{=length}} Results found for "{{=search}}"</p>
+{{for s in stories:}}
+            {{=s.title}} by {{=s.user_email}}<br />
+            {{=s.snippets}}<br /><br />
+    {{pass}}
+{{pass}}
+
+<!-- For loop to print out related_stories -->
+<br /><br /><br /><br />
+<p>Related Stories:</p>
+{{for s in related_stories:}}
+            {{=s.title}} by {{=s.user_email}}<br />
+            {{=s.snippets}}<br /><br />
+    {{pass}}
+{{pass}}
+
+<br />
+<div id="target"></div>

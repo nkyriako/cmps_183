@@ -1,0 +1,6 @@
+<!--NEW-->
+{{extend 'layout.html'}}
+<h1>{{=b_title}}</h1>
+<br>
+{{=b_text}}
+<!--END-->

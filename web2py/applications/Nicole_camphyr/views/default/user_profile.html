@@ -1,0 +1,58 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+
+{{end}}
+
+
+{{ if cl is None: }}
+
+    {{ redirect(URL('default', 'edit_profile')) }}
+
+{{else: }}
+     <!-- WHEN INTEGRATING: check the curly braces for what has changed -->
+    <h1> {{=username}}'s Profile </h1>
+
+        <div class="left_column" style="float:left;">
+
+            {{if cl is not None:}}
+                {{=IMG(_src=URL('static', 'images/prof_pics', args=file_name),
+                    _height='200px', _width='200px', _style='border:6px solid #45754a')}}
+            {{else:}}
+                {{=IMG(_src=URL('static', 'images/prof_pics/default_profile.jpg'),
+                       _height='200px', _width='200px', _style='border:6px solid #45754a')}}
+            {{pass}}
+
+            <p>
+                {{=bio}}
+            </p>
+
+            <!-- Show edit profile button only if its your own page -->
+            {{if str(cl.user_email) == str(auth.user.email):}}
+                <a href="{{=URL('default', 'edit_profile')}}" class="btn large">Edit Profile</a>
+            {{pass}}
+
+        </div>
+
+    <div class="right_column" style="float:left;">
+        <h3>Recent stories {{=username}} added to:</h3>
+
+
+        <h3>Standalone stories by {{=username}}:</h3>
+        {{for name in db(db.bio_story.user_email == get_user_email()).select():}} <!--Selects all snippets in database with title-->
+            <div id = 'story'>
+                {{link = URL('default', 'user_story', vars = dict(title_name = name.title))}} <!--creates a link to the story-->
+                <a href = '{{=link}}'>{{=name.title}}</div>
+            </div>
+        {{pass}}
+        <a href = 'http://127.0.0.1:8000/camphyr/default/create_story' id = 'link'>Create new story...</a>
+    </div>
+
+    <div>
+        <a href="{{=URL('default', 'index')}}" class="btn large">Return to Camphyr</a>
+    </div>
+
+    {{pass}}
+
+
+   {{pass}}

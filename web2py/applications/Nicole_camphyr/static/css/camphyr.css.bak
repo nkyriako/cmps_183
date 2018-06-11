@@ -1,0 +1,28 @@
+#snippet{
+    border: double;
+    padding: 25px;
+    margin: 10px;
+}
+
+#text{
+    border: solid;
+    padding: 5px;
+    position: relative;
+}
+
+#user_name{
+    width: 400px;
+    position: relative;
+}
+
+/*Alex Edit: These two are also not implemented yet
+A: May come into play if we enable snippets to be viewed when logged out*/
+.disabled {
+    background-color:#7a7b7c !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.disabled-icon{
+    opacity:.5
+}

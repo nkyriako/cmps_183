@@ -1,0 +1,4 @@
+<!--NEW-->
+{{extend 'layout.html'}}
+{{=new_story}}
+<!--END-->

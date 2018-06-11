@@ -1,0 +1,92 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+{{end}}
+
+<!--art by <a href='https://www.freepik.com/free-vector/collection-of-rounded-black-labels-with-constellations_891165.htm'>Designed by Freepik</a>-->
+<!--<a href='https://www.freepik.com/free-vector/constellation-labels-of-zodiac_891166.htm'>Designed by Freepik</a>-->
+
+
+<div class="main_content">
+	{{if auth.user is None:}}
+	<h1 class="center">Welcome to AstroChat!</h1>
+	<div class="topwebpage container">
+		<div class="third buttons">
+    		<a href="{{=URL('default', 'user')}}" class="btn large">Login</a>
+    		<br>
+    		<a href="{{=URL('default', 'user', args='register', vars={'_next': request.vars._next} if request.vars._next else None)}}" class="btn large">Sign Up</a>
+    	</div>
+    	<div class="twothirds about_astrochat">
+    		<h3 class="center">About Astrochat</h3>
+    		<tbody class='middle'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description and over of Astrochat. Blah blah blah, just to take up space. Astrochat Astrochat Astrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat Astrochat</tbody>
+    	</div>
+    </div> 
+    <br><br>
+    <br><br>
+    <div class="bottomwebpage">
+    	<h3 class="center">Check out your horoscope for today below:</h3>
+    	<br><br>
+    	<div class="container compressible" style="padding-left:40px;padding-right:40px">
+	 			<div class="buttons">
+		 			<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:80px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:90px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:100px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:110px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:120px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+				    <a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:130px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    	</div>
+		    	<div class="buttons">
+		 			<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:80px;background-repeat:no-repeat;background-position:center;background-color:'blue';" href="{{=URL('default','user')}}">
+		    		</a>
+		    		
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:90px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:100px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:110px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    		<a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:120px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+				    <a class="btn oval" style="background:url(/AstroChat/static/images/astrosigns/AriesSymbol.png);width:90px;height:90px;opacity:.7;margin-left:130px;background-repeat:no-repeat;background-position:center" href="{{=URL('default','user')}}">
+		    		</a>
+		    	</div>
+
+	 		
+ 		</div>
+    </div>
+
+
+
+	{{else:}}
+    <h1>Welcome to AstroChat!</h1>
+  	<div class="profile_btn">
+    	<a class="btn rounded" href="{{=URL('default','edit_profile')}}">
+      		<i class="fa fa-edit fa-lg"></i>
+    	</a>
+        <a class="btn rounded" href="{{=URL('default', 'about_me', str(auth.user_id))}}">
+            <i class="fa fa-edge">About Me</i>
+        </a>
+  	</div>
+    <div class="birthdaysign">
+        {{if curruser.birthday is None:}}
+                <h3>Please edit your profile and input your birthday</h3>
+        {{else:}}
+                <h3>Your birthday is: {{=curruser.birthday}}. Your sign is: {{=sign}}</h3>
+                <h2>Here is your daily horoscope: </h2>
+                <div style="display:block; overflow: hidden; width:1000px;height:100px;">
+                        <iframe id="embed" src="https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign= +{{=urlnum}}+" scrolling="no" height="1000" width="1000" style="border:none; margin-top:-370px"> 
+                        </iframe>
+                </div>
+        {{pass}}
+    </div>
+    {{pass}}
+
+</div>
+

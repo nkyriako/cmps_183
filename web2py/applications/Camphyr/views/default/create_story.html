@@ -1,0 +1,16 @@
+<!--NEW-->
+{{extend 'layout.html'}}
+<div class="logo">
+	<div id="logo">Camphyr</div>
+</div>
+<h2 style="color:gray;">Create your own story below!:</h2>
+<div style="color:black;font-size:35px;font-style:bold;background-color:orange;opacity:.6">
+{{=new_story}}
+</div>
+<!--END-->
+
+<!--Alex edit: Added return link to profile page-->
+<div>
+	<br><br>
+	<a href="{{=URL('default', 'user_profile')}}" class="btn">Return to Profile</a>
+</div>

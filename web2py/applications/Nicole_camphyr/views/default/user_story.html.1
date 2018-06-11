@@ -1,0 +1,9 @@
+{{response.files.append(URL(r=request,c='static/css',f='style.css'))}}
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+
+<!--NEW-->
+{{extend 'layout.html'}}
+<div id = 'bio_title'>{{=story_title}}</div>
+<br>
+<div id = 'bio_text'>{{=story_text}}</div>
+<!--END-->

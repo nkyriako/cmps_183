@@ -1,0 +1,88 @@
+#snippet{
+    border: double;
+    padding: 25px;
+    margin: 10px;
+    border-width: 10px;
+}
+
+#text{
+    border: solid;
+    padding: 5px;
+    position: relative;
+    border-color: rgb(245,245,105);
+    border-width:3px;
+}
+
+#user_name{
+    width: 400px;
+    position: relative;
+}
+
+#highlight_box{
+    background-color: rgb(255,98,104);
+    padding:20px;
+}
+
+#orange_box{
+    background-color: orange;
+    padding:10px;
+
+}
+
+#match_image{
+    padding:10px;
+    border-color:white;
+    border-style:solid;
+    border-width:10px;
+    background-color:orange;
+    background-image:url("/.../static/images/match.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    position:relative;
+    opacity:.5;
+}
+#log_image{
+    padding:10px;
+    border-color:white;
+    border-style:solid;
+    border-width:10px;
+    background-color:orange;
+    background-image:url("/.../static/images/logs.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    position:relative;
+    opacity:.5;
+}
+#user_image{
+    padding:10px;
+    border-color:white;
+    border-style:solid;
+    border-width:10px;
+    background-color:orange;
+    background-image:url("/.../static/images/fire.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    position:relative;
+    opacity:.5;
+}
+
+
+#logo{
+    font-family:Garamond; 
+    font-weight:bold;
+    color:orange;
+    font-size:80px;
+}
+
+/*Alex Edit: These two are also not implemented yet
+A: May come into play if we enable snippets to be viewed when logged out*/
+.disabled {
+    background-color:#7a7b7c !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.disabled-icon{
+    opacity:.5
+}
+

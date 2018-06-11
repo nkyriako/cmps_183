@@ -1,0 +1,97 @@
+timestamp: 2018-06-05T16:19:58.399303
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512),
+    "stories" CHAR(512),
+    "about" TEXT,
+    "profile_picture" CHAR(512),
+    "upload_data" BLOB,
+    "file_name" CHAR(512)
+);
+success!
+timestamp: 2018-06-05T16:19:58.412119
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-06-05T16:19:58.415726
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-06-05T16:19:58.419123
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2018-06-05T16:19:58.428094
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-06-05T16:19:58.432653
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2018-06-05T16:19:58.438488
+CREATE TABLE "story"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email" CHAR(512),
+    "title" CHAR(512),
+    "snippets" TEXT,
+    "lastcreated" CHAR(1),
+    "updated_on" TIMESTAMP,
+    "is_public" CHAR(1),
+    "storyId" TEXT,
+    "ishead" CHAR(1),
+    "clicked" CHAR(1),
+    "num_snippets" INTEGER,
+    "address" CHAR(512),
+    "lastcontributed" CHAR(512),
+    "fin" CHAR(1)
+);
+success!
+timestamp: 2018-06-05T16:19:58.446474
+CREATE TABLE "user_profile"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email" CHAR(512),
+    "bio" TEXT,
+    "profile_picture" CHAR(512),
+    "upload_data" BLOB,
+    "file_name" CHAR(512),
+    "contribution_id" TEXT
+);
+success!
+timestamp: 2018-06-05T16:19:58.450888
+CREATE TABLE "bio_story"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email" CHAR(512),
+    "title" TEXT,
+    "story" TEXT
+);
+success!

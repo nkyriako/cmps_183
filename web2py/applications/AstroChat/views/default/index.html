@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+{{end}}
+
+<div class="main_content">
+	{{if auth.user is None:}}
+	<h1 class="center">Welcome to AstroChat!</h1>
+	<div class="topwebpage container">
+		<div class="third buttons">
+    		<a href="{{=URL('default', 'user')}}" class="btn large">Login</a>
+    		<br>
+    		<a href="{{=URL('default', 'user', args='register', vars={'_next': request.vars._next} if request.vars._next else None)}}" class="btn large">Sign Up</a>
+    	</div>
+    	<div class="twothirds about_astrochat">
+    		<h3 class="center">About Astrochat</h3>
+    		<tbody class='middle'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description and over of Astrochat. Blah blah blah, just to take up space. Astrochat Astrochat Astrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat AstrochatAstrochat Astrochat</tbody>
+    	</div>
+    </div> 
+    <br><br>
+    <br><br>
+    <div class="bottomwebpage container">
+    	<h3 class="center">Check out your horoscope for today below:</h3>
+    	<br><br>
+    	<iframe src="https://www.horoscope.com/us/index.aspx" scrolling="no" style="height:100%; width:100%;"> 
+    		<p>Your browser does not support iframes.</p>
+    	</iframe>
+    </div>
+
+
+
+	{{else:}}
+    <h1>Welcome to AstroChat!</h1>
+  	<div class="profile_btn">
+    	<a class="btn rounded" href="{{=URL('default','edit_profile')}}">
+      		<i class="fa fa-edit fa-lg"></i>
+    	</a>
+        <a class="btn rounded" href="{{=URL('default', 'about_me')}}">
+            <i class="fa fa-edge">About Me</i>
+        </a>
+  	</div>
+    <div class="bday">
+        {{if curruser is not None:}}
+        {{if curruser.birthday is None:}}
+                <h3>Please edit your profile and input your birthday</h3>
+        {{else:}}
+                <h3>Your birthday is: {{=curruser.birthday}}. Your sign is: {{=sign}}</h3>
+                <h2>Here is your yearly horoscope:</h2>
+                {{=year_horoscope}}
+                <h2>Here is your monthly horoscope:</h2>
+                {{=month_horoscope}}
+                <h2>Here is your weekly horoscope:</h2>
+                {{=week_horoscope}}
+                <h2>Here is your daily horoscope: </h2>
+                {{=day_horoscope}}
+
+        {{pass}}
+    </div>
+    {{pass}}
+    {{pass}}
+
+</div>
+
