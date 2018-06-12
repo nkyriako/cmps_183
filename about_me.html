@@ -1,0 +1,83 @@
+{{extend 'layout_2.html'}}
+{{block header}}
+
+<!-- might need 'static', 'js/vue.js' script again -->
+<script src="{{=URL('static', 'chart/project/build/astrochart.min.js')}}"></script>
+{{end}}
+
+{{if auth.user:}}
+       <!-- This only works for your OWN profile -->
+
+{{if cl is not None:}}
+
+<div style="background-color:#7fdbff; padding:10px; border: solid 2px black">
+    <h1> {{=auth.user.username}}'s Profile </h1>
+</div>
+
+<div class="bg">
+<div class="padd" style="background:rgba(0,0,0,0.5); height:85%">
+<div style="background: url('../../static/images/galaxy_1.jpg')">
+    <div style="border: solid 2px black; width: 30%; padding: 20px; background:rgba(127,219,255,1); float:left">
+    {{if cl.profile_picture is not None:}}
+    {{pass}}
+
+        {{=IMG(_src=URL('static', 'images/profile_pics', args=cl.profile_picture),
+               _height='200px', _width='200px'
+        )}}
+
+        <h3 style="text-align:left">Birthday: {{=cl.birthday.month}}/{{=cl.birthday.day}}/{{=cl.birthday.year}}</h3>
+        <h3 style="text-align:left">About:</h3>
+        <p>{{=cl.bio}}</p>
+        <div class="profile_btn">
+            <a class="btn rounded" href="{{=URL('default','edit_profile')}}">
+                <i class="fa fa-edit fa-lg"> Edit Profile</i>
+            </a>
+        </div>
+    </div>
+
+    <div style="border: solid 2px black; max-width: 50%; background:rgba(255,255,255,0); float:right">
+      <svg id='chart' width="600px" height="600px"></svg>
+      <script style="display: none">
+      // I dont get what i am supposed to do here...
+        var data = {
+            "planets": {
+            "Moon":[0],
+            "Sun":[311],
+            "Mercury":[60],
+            "Venus":[60],
+            "Mars":[120],
+            "Jupiter":[300],
+            "Saturn":[201, -0.2],
+            "Uranus":[180],
+            "Neptune":[110, 0.2],
+            "Pluto":[150],
+            "Chiron":[210],
+            "Lilith":[0],
+            "NNode":[300]
+        },
+        "cusps":[300, 340, 30, 60, 75, 90, 116, 172, 210, 236, 250, 274]
+        };
+	window.onload = function(){
+		var chart = new astrology.Chart( 'chart', 600, 600);
+		chart.radix( data );
+        };
+      </script>
+    </div>
+</div>
+</div>
+</div>
+
+{{else:}}
+      <h2>Alert: Please go back to set up your profile.</h2>
+      <a class="btn rounded" href="{{=URL('default','edit_profile')}}">
+          <i class="fa fa-edit fa-lg"> Edit Profile</i>
+      </a>
+
+
+{{pass}}
+
+{{else:}}
+
+        <h1>You must be logged in to see your profile.</h1>
+
+{{pass}}
