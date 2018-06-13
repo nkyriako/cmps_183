@@ -1,9 +1,0 @@
-{{extend 'layout.html'}}
-<div class="test">
-    <h1 id = 'story_title'>HELLO!</h1>
-    {{for name in db(db.story.title == 'HELLO!').select():}}
-        <div id = 'snippet'>{{=name.snippets}}</div>
-    {{pass}}
-</div>
-<h2>Your snippet</h2>
-{{=snippet}}

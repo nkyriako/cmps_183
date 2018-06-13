@@ -1,3 +1,0 @@
-{{extend 'layout.html'}}
-{{=b_title}}
-{{=b_text}}
